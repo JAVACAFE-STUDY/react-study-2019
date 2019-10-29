@@ -174,9 +174,43 @@ class MyComponent extends React.Component {
 * getDerivedStateFromError: 화면에 에러 내용을 나타내는 용도
 * compontDidCatch: 서버에 에러정보를 전송하는 목적으로 사용
 
+## 3.4 콘텍스트 API로 데이터 전달하기
 
+* 보통 상위 컴포넌트에서 하위 컴포넌트로 데이터를 전달할 때 속성값을 사용
+* 컴포넌트 깊이가 몇 개 안되는 경우면 상관 없지만 많을 경우 속성 값을 내려줘야 하는 소스를 반복적으로 작성해야한다.
+* 이런 반복적으로 코드를 없애고 보다 쉽게 속성 값을 전달하기 위한 방법으로 콘텍스트 API가 있다.
 
+### 3.4.1 콘텍스트 API 이해하기
 
+* 콘택스트 API를 활용하면 Profile 콤포넌트가 중간에 개입하지 않고도 속성값을 전달할 수 있다.
+* createContext는 다음과 같은 구조를 가진다.(https://ko.reactjs.org/docs/context.html#reactcreatecontext)
+* 상위 컴포넌트에서는 Provider 컴포넌트를 이용해서 데이터를 전달
+* 하위 컴포넌트에서는 Consumer 컴포넌트를 이용해서 데이터를 사용
+* Comsumer에서 데이터를 찾기 위해 가장 가까운 Provider를 찾게되고 없는 경우에는 기본 값을 사용한다.
+* Provider 속성 값이 변경되면 모든 Comsumer 가 업데이트 된다. 이 때 shouldComponentUpdate 메서드를 무시한다.
+
+### 3.4.2 콘텍스트 API 활용하기
+
+* 여러 콘텍스트를 중첩해서 사용하기
+* 생명 주기 메서드에서 콘텍스트 데이터 사용하기
+   * https://ko.reactjs.org/docs/context.html#classcontexttype
+* 하위 컨포넌트에서 콘텍스트 데이터를 수정하기   
+
+### 3.4.3 콘텍스트 API 사용 시 주의할 점
+
+* 불필요한 렌더링이 발생하지 않도록 한다.
+* Provider, Consumer를 적절한 위치에 둬야 한다.
+
+* https://ko.reactjs.org/docs/context.html
+
+## 3.5 ref 속성값으로 자식 요소에 접근하기
+
+* 리액트 작업하다 보면 돔 요소에 직접 접근해야 하는 경우가 발생
+* 이 때 ref 속성값을 이용하면 자식 요소에 직접 접근이 가능
+* 자식 요소로는 dom 일수도 있고 react 컴포넌트 일 수도 있다.
+* createRef 함수가 반환하는 ref 객체를 이용해서 자식 요소에 접근가능(https://ko.reactjs.org/docs/react-api.html#reactcreateref)
+* https://ko.reactjs.org/docs/forwarding-refs.html
+* https://ko.reactjs.org/docs/refs-and-the-dom.html
 
 
 

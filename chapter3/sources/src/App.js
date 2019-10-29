@@ -2,6 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import MyComponent from './myComponent';
+import Profile from './Profile';
+import {UserContextProvider} from './UserContext'
+
 
 function App() {
   console.log(<MyComponent />);
@@ -20,6 +23,10 @@ function App() {
         >
           Learn React
         </a>
+        <UserContextProvider value="서동우">
+          {/* <Profile username="서동우" /> */}
+          <Profile />
+        </UserContextProvider>
         <MyComponent />
       </header>
     </div>

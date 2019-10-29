@@ -8,6 +8,17 @@ class MyComponent extends React.Component {
     //     this.state = {desc: '', currentId: 1, todoList: []};    
     // }
     state = {desc: '', currentId: 1, todoList: []};
+    //textRef = React.createRef();
+    textRef = null;
+
+    componentDidMount() {
+        this.setFocus();
+    }
+
+    setFocus = () => {
+        this.textRef.focus();
+    };
+
     onAdd = () => {
         const {desc, currentId, todoList} = this.state;
         const todo = {id: currentId, desc};
@@ -49,7 +60,7 @@ class MyComponent extends React.Component {
                         </li>
                     )}
                 </ul>
-                <input value={desc} onChange={this.onChangeDesc} />
+                <input value={desc} onChange={this.onChangeDesc} ref={input => this.textRef = input} />
                 <button onClick={this.onAdd}>추가</button>
                 <button onClick={this.onSaveToServer}>서버에 저장</button>
             </div>
