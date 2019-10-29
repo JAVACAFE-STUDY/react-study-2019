@@ -213,4 +213,7 @@ class MyComponent extends React.Component {
 * https://ko.reactjs.org/docs/refs-and-the-dom.html
 
 
+# 번외편
 
+## this
+https://blueshw.github.io/2018/03/12/this/
