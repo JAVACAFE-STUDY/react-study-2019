@@ -41,7 +41,7 @@ class MyComponent extends React.Component {
         return (
             <div>
                 <Title title={`현재 할 일 갯수는: ${count}`} />
-                <Title title="dwdwd" />
+                <Title />
                 <ul>
                     {todoList.map(todo => 
                         <li key={todo.id}>
